@@ -5,51 +5,49 @@
 library(psych)
 library(psychTools)
 
+# Small/no --------------------------------------------------------------------
+
 data(Thurstone)
 dim(Thurstone) # small
-
-data(bfi)
-dim(bfi) 
-# 25 personality self report items taken from the International Personality Item 
-# Pool (ipip.ori.org) were included as part of the Synthetic Aperture Personality 
-# Assessment (SAPA) web based personality assessment project. The data from 2800
-# subjects are included here as a demonstration set for scale construction, 
-# factor analysis and Item Response Theory analyses.
-
-data(spi)
-dim(spi) # ???
 
 data(sat.act)
 dim(sat.act) # small
 
 data(epi.bfi)
-dim(epi.bfi) # ???
+dim(epi.bfi) # small
 
-data(epiR)
-dim(epiR) # ???
+data(iqitems) 
+dim(iqitems) # no
 
-
-
-data(iqitems) # ???
-dim(iqitems) # ??? 
-
-data(ability) # ??? 
-dim(ability) # ??? 
-
-data(galton)
-dim(galton) # ??? 
+data(epiR) 
+dim(epiR) # no
 
 data(Dwyer)
 dim(Dwyer) # small
 
-data(miscellaneous)
-dim(miscellaneous) # ??? 
+data(peas)
+dim(peas) # small
+
+data(cities)
+dim(cities) # small
+
+data(vegetables)
+dim(veg) # small
 
 
+# Maybe -----------------------------------------------------------------------
 
+data(sai)
+dim(sai) # Maybe
 
+data(msqR)
+dim(msqR) # Maybe
 
+data(spi)
+dim(spi) # no description
 
+data(bfi)
+dim(bfi) 
 
 ###############################################################################
 ###############################################################################
