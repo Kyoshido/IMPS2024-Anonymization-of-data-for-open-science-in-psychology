@@ -1,0 +1,7 @@
+Title 1: Statistical disclosure methods for psychology: an application to a real dataset
+
+Title 2: Statistical disclosure methods for open science in psychology
+
+Title 3: Anonymization of data for open science in psychology
+
+Title 4: Anonymization and synthetization of data from psychology and psychometrics
