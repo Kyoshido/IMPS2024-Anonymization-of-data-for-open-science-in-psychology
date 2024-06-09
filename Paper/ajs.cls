@@ -74,7 +74,7 @@
 
 %% page layout
 %\topmargin 0pt
-\topmargin -50pt
+\topmargin -100pt
 %\textheight 46\baselineskip
 \textheight 53\baselineskip
 \advance\textheight by \topskip
@@ -129,43 +129,6 @@
 
 \usepackage{booktabs}
 %% defaults
-\author{Firstname Lastname\\Affiliation}
-\title{Title}
-\Abstract{---!!!---an abstract is required---!!!---}
-\Plainauthor{\@author}
-\Volume{VV}
-\Year{YYYY}
-\Month{MMMMMM}
-\Issue{II}
-\Submitdate{yyyy-mm-dd}
-\Acceptdate{yyyy-mm-dd}
-\Address{
-  Firstname Lastname\\
-  Affiliation\\
-  Address, Country\\
-  E-mail: \email{name@address}\\
-  URL: \url{http://link/to/webpage/}
-}
-
-\Reviewer{Firstname Lastname\\Affiliation}
-\Plainreviewer{Firstname Lastname}
-\Booktitle{Book Title}
-\Bookauthor{Book Author}
-\Publisher{Publisher}
-\Pubaddress{Publisher's Address}
-\Pubyear{YYY}
-\ISBN{x-xxxxx-xxx-x}
-\Pages{xv + 123}
-\Price{USD 69.95 (P)}
-\URL{http://link/to/webpage/}
-	\DOI{10.17713/ajs.v000.i00}
-\if@article
-  \Seriesname{Issue}
-  \Hypersubject{Austrian Journal of Statistics}
-  \Plaintitle{\@title}
-  \Shorttitle{\@title}
-  \Plainkeywords{\@Keywords}
-\fi
 
 \if@codesnippet
   \Seriesname{Code Snippet}
@@ -227,63 +190,8 @@
 \newlength{\footerskip}
 \setlength{\footerskip}{2.5\baselineskip plus 2ex minus 0.5ex}
 
-\newcommand{\makefooter}{%
-  \vspace{\footerskip}
-
-  \if@nojss
-    \begin{samepage}
-    \textbf{\large \@Footername: \nopagebreak}\\[.3\baselineskip] \nopagebreak
-    \@Address \nopagebreak
-    \end{samepage}
-  \else
-    \begin{samepage}
-    \textbf{\large \@Footername: \nopagebreak}\\[.3\baselineskip] \nopagebreak
-    \@Address \nopagebreak
-    \vfill
-    \hrule \nopagebreak
-    \vspace{.1\baselineskip}
-    {\fontfamily{phv} \fontsize{11}{13} \selectfont Austrian Journal of Statistics}
-    \hfill
-    \url{http://www.ajs.or.at/}\\ \nopagebreak
-    published by the Austrian Society of Statistics
-    \hfill
-    \url{http://www.osg.or.at/}\\[.3\baselineskip] \nopagebreak
-    {Volume~\@Volume , Issue~\@Issue%, \@Seriesname~\@Issue
-    }
-    \hfill
-    \@Firstdate\\ \nopagebreak
-    	    {\href{https://doi.org/\@DOI}{\tt doi:\@DOI}}
-    %{\@Month{} \@Year}
-    \hfill
-    \@Seconddate  \nopagebreak
-    \vspace{.3\baselineskip}
-    \hrule
-    \end{samepage}
-  \fi
-}
-\if@nofooter
-  %% \AtEndDocument{\makefooter}
-\else
-  \AtEndDocument{\makefooter}
-\fi
 %% required packages
 \RequirePackage{hyperref}
-%% new \maketitle
-\def\@myoddhead{
-  {\color{white} AJS}\\[-1.42cm]
-  \hspace{-2em} %\includegraphics[height=13mm,keepaspectratio]{jsslogo} \hfill
-  \parbox[b][23mm]{118mm}{%\hrule height 3pt
-%   \center{
-   {\fontfamily{phv} \fontsize{11}{13} \selectfont \href{http://www.ajs.or.at}{Austrian Journal of Statistics}}\\
-  % \vfill
-   {\it \small \@Month{} \@Year, Volume~\@Volume, Issue~\@Issue, \@Pages. \\%, \@Seriesname~\@Issue. \\%
-            %\hfill
-            \href{http://www.ajs.or.at/}{http://www.ajs.or.at/}}
-            %}
-            \\[0.1cm] %\vspace{-3cm}
-    % \hrule height 3pt
-    }
-    }
 
 \if@review
   \renewcommand{\maketitle}{
