@@ -283,21 +283,8 @@
             \\[0.1cm] %\vspace{-3cm}
     % \hrule height 3pt
     }
-    \parbox[b][3mm]{118mm}{
-    %\vspace*{-2cm}
-    \href{www.osg.or.at}{\includegraphics[width=0.2\textwidth]{oesg}} \\ \vfill
     }
-    }
-% \def\@myoddhead{
-%   {\color{white} JSS}\\[-1.42cm]		  {\color{white} AJS}\\[-1.42cm]
-%   \hspace{-2em} \includegraphics[height=23mm,keepaspectratio]{jsslogo} \hfill		  \hspace{-2em} %\includegraphics[height=13mm,keepaspectratio]{jsslogo} \hfill
-%   \parbox[b][23mm]{118mm}{\hrule height 3pt		  \parbox[b][23mm]{118mm}{%\hrule height 3pt
-%    \center{		%   \center{
-%    {\fontfamily{pzc} \fontsize{28}{32} \selectfont Journal of Statistical Software}		   {\fontfamily{phv} \fontsize{11}{13} \selectfont \href{http://www.ajs.or.at}{Austrian Journal of Statistics}}\\
-%    \vfill		  % \vfill
-%    {\it \small \@Month{} \@Year, Volume~\@Volume, \@Seriesname~\@Issue.%		   {\it \small \@Month{} \@Year, Volume~\@Volume, \@Pages. \\%, \@Seriesname~\@Issue. \\%
-%             \hfill \href{https://doi.org/\@DOI}{doi:\,\@DOI}}}\\[0.1cm]		            %\hfill 
-%      \hrule height 3pt}}
+
 \if@review
   \renewcommand{\maketitle}{
   \if@nojss
