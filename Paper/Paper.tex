@@ -1,61 +1,60 @@
-\documentclass[article]{ajs}
+\documentclass{article}
+
+%% Packages 
+\usepackage[english]{babel} % Language setting
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Set page size and margins
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Title
 \title{Anonymisation of data for open science in psychology \\
 \textcolor{red}{(Working title)} 
-
 }
-
 %% Authors
-\author{
-		Jiří Novák\,\orcidlink{0000-0003-0715-4769}\\ 
-        University of Zurich \\
-        University of Applied \\ Sciences and Arts \\ Northwestern Switzerland \And 
-		Matthias Templ\,\orcidlink{0000-0002-8638-5276}\\ University of Applied \\ Sciences and Arts \\ Northwestern Switzerland \And 
-        Carolin Strobl\,\orcidlink{0000-0003-0952-3230}\\ University of Zurich
+\author{Jiří Novák \and 
+        Matthias Templ \and 
+        Carolin Strobl
         }
-%% 
-
-
-%% for pretty printing and a nice hypersummary also set:
-\Plainauthor{Jiří Novák, Matthias Templ, Carolin Strobl} %% comma-separated
-\Plaintitle{A Capitalized Title: Something about a Topic} %% without formatting
-\Shorttitle{A Capitalized Title} %% a short title (if necessary)
-
-%% an abstract and keywords
-\Abstract{
-  Abstract
-}
-\Keywords{keywords, comma-separated, non-capitalized, \proglang{R}}
-\Plainkeywords{keywords, comma-separated, non-capitalized,, R} %% without formatting
-%% at least one keyword must be supplied
-
-%% end of declarations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+\maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+Your abstract.
+\end{abstract}
+
+%% start of article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Introduction}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
 
 
-%% ACKNOWLEDGMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{ACKNOWLEDGMENT}
-
-This paper has been prepared with the support of a SNF project – Harnessing event and longitudinal data in industry and health sector through privacy preserving technologies. 
-
-%% end of article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Acknowledgment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\bibliographystyle{plainat}
-\bibliography{Bibliography/references}
+\section{Acknowledgment} 
+\subsection{Acknowledgment} 
+This work was funded by the Swiss National Science
+Foundation with grant \textit{"Harnessing event and longitudinal data in industry and health sector through privacy preserving technologies"} (grant number 211751).
+
+\subsection{Disclosure of Interests} 
+The authors have no competing interests to declare that are
+relevant to the content of this article. 
+
+%% end of article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% References
+\bibliographystyle{alpha}
+\bibliography{bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
