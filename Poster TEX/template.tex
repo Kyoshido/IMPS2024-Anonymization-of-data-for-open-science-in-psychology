@@ -1,17 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% a0poster Portrait Poster for LiRI/UZH
-% LaTeX Template
-% Version 1.0 (22/06/13)
-% Version 2.0 (08/04/22)
-%
-% The a0poster class was created by:
-% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
-% adapted by Danny McDonald for LiRI/UZH (mcddjx@gmail.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a0,portrait]{a0poster}
 
@@ -30,7 +19,8 @@
 \columnsep=3em % This is the amount of white space between the columns in the poster
 \columnseprule=0pt % This is the thickness of the black line between the columns in the poster
 
-% UZH colours
+% UZH colours %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[svgnames]{xcolor}
 \definecolor{uzhblau100}{RGB}{0, 40, 165}
 \definecolor{uzhblau80}{RGB}{51,83,183}
@@ -39,6 +29,9 @@
 \definecolor{uzhflaschengruen100}{RGB}{42, 127, 98}
 \definecolor{uzhflaschengruen80}{RGB}{86, 157, 133}
 \definecolor{conclusion}{RGB}{204,212,237} % the conclusion box colour
+
+% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{ifthen} % needed to stop horizontal line above 'Conclusions' section
 \usepackage{graphicx} % Required for including images
@@ -74,7 +67,12 @@
 \usepackage{titlesec} % customising section titles
 \usepackage{needspace} % prevent break between line and section title
 \usepackage{nameref} % package and command to get the name of the current section (for ifthen)
+\usepackage{hyperref} % Hyperlinks
+\usepackage{pifont} % More styles for bullets
 
+% Start of the poster %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 % define how our section titles will look (with ruled line)
@@ -84,8 +82,13 @@
   {1em}
   {\color{uzhblau100}}
 
-% draw horizontal line before section unless it is conclusions (if you change name of Conclusions, you should
-% also change it here too so it is recognised and the line suppressed
+\titleformat{\subsection}
+  {\Large\bfseries}
+  {\color{uzhblau100}}
+  {0em}
+  {\color{uzhblau100}}
+
+% Draw a horizontal line before the section unless it is conclusions (if you change the name of Conclusions, you should also change it here too so it is recognised and the line suppressed
 \makeatletter
 \newcommand{\sectionrule}{%
  \ifthenelse{\equal{\@currentlabelname}{Conclusions}}
@@ -98,23 +101,31 @@
 }
 \makeatother
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POSTER HEADER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	POSTER HEADER 
-%----------------------------------------------------------------------------------------
-%\title{Creating a \LaTeX{} poster template matching UZH specifications for LiRI presentations}
-\title{Titel zum Thema des Posters: Lesbar aus fünf Metern Distanz  und eindeutig formuliert}
+% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Anonymization of data for open science in psychology}
 
-% the top logo (in english!) and unit title
+% Top logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-\begin{minipage}{.32\linewidth}
- \includegraphics[width=20cm]{uzh_logo_e_pos.pdf}
-\end{minipage}%
-\begin{minipage}{.33\linewidth}
- \huge{\textbf{Linguistic Research Infrastructure}}
+\begin{figure}[h]
+\begin{minipage}{.15\linewidth}
+  \includegraphics[width=10cm]{Poster TEX/style/UZH.jpg} 
 \end{minipage}
-\vspace{4em}
+\begin{minipage}{.15\linewidth}
+  \includegraphics[width=10cm]{Poster TEX/style/FHNW.png} 
+\end{minipage}
+\begin{minipage}{.15\linewidth}
+  \includegraphics[width=10cm]{Poster TEX/style/SwissAnon.jpg} 
+\end{minipage}
+\hspace{\fill} % This will push the fourth image to the right
+\begin{minipage}{.24\linewidth}
+  \includegraphics[width=20cm]{Poster TEX/style/IMPS.png}
+\end{minipage}
+\end{figure}
 
+% Header formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The header is divided into two boxes, on the left is the text and on the right is the image
 \begin{minipage}[b][][t]{.6\linewidth}
 \vfill
@@ -123,109 +134,126 @@
 \makeatother
 \color{Black}
 \vspace{1cm}
+
+% Subtitle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\Huge\textit{Subtitle goes here}\\[2.4cm] % Subtitle if it exists
-\underline{Danny McDonald\textsuperscript{1}}, Autor Zwei, Autor Drei\\
+
+% Author(s) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\underline{Jiří Novák\textsuperscript{1,2,3}} \\
 \vspace{0.2cm}
-\textsuperscript{1}LiRI, University of Zurich
-%\\ % add your institution
+\textsuperscript{1} University of Zürich, Psychological Methods, Evaluation and Statistics \\
+\textsuperscript{2} University of Applied Sciences and Arts Northwestern Switzerland, Institute for Competitiveness and Communication \\
+\textsuperscript{3} Swiss Data Anonymization Competence Center
 %\texttt{you@uzh.ch}%\\ % add your email
-\end{minipage}%
+\end{minipage}
 %
-\begin{minipage}[b][][t]{0.39\linewidth}
+\begin{minipage}[b][][t]{0.388\linewidth}
 \vfill
-  \begin{overpic}[width=.8\textwidth,right]{LIRI_WissPoster_Wasserzeichen.png} % what even is this thing?
-     \put(85,0){\includegraphics[scale=0.25]{Silhouette.png}}  % your image goes in here
+  \begin{overpic}[width=.8\textwidth,right]{LIRI_WissPoster_Wasserzeichen.png
+  } % what even is this thing?
+     \put(85,0){\includegraphics[scale=0.25]{Poster TEX/style/JN.png}}  % your image goes in here
   \end{overpic}
 \end{minipage}
 \vspace{1cm}
 
-%----------------------------------------------------------------------------------------
-%	POSTER BODY
-%----------------------------------------------------------------------------------------
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% POSTER BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{multicols}{3} % This is how many columns your poster will be broken into
 
-%----------------------------------------------------------------------------------------
-%	INTRODUCTION
-%----------------------------------------------------------------------------------------
+\Large
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{BACKGROUND}
 
-\section{Untertitel}
-
-\large
-Fliesstext mit einfachem Satzbau und kurzen Hauptsätzen erleichtern die Lesbarkeit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis. Donec quam felis, ultricies nec, pellentesque eu. Aenean commodo ligula eget dolor. Aenean massa.
-
+There is a great demand for more research data to be made openly available.
+Many psychological datasets contain demographic and health variables that require proper protection against disclosure.
+Unfortunately, many datasets cannot be publicly available for privacy reasons.
+\bigbreak
+To enable dissemination and, therefore, to open data, we can use these methods:
 \begin{itemize}
-\item An example of a bullet point
-\item A second example of a bullet point, this one taking up more than one line just to see how it displays
-\item Third, short point
+     \item[\ding{228}] \textbf{Statistical Disclosure Control (SDC)}
+        \begin{itemize}
+            \item protects the data
+            \item prevents re-identification
+        \end{itemize}        
+     \item[\ding{228}] \textbf{Synthetic data generation}
+        \begin{itemize}
+            \item mimics the original data
+            \item creates artificial data that can be safely disseminated
+        \end{itemize}        
 \end{itemize}
-\blindtext
-\begin{center}
- \vspace{2cm}
- \begin{tabular}{c c c c} 
-  \toprule
-  Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
-  \midrule
-  1 & 6 & 87837 & 787 \\ 
-  2 & 7 & 78 & 5415 \\
-  3 & 545 & 778 & 7507 \\
-  4 & 545 & 18744 & 7560 \\
-  5 & 7 & 78 & 5415 \\
-  6 & 545 & 778 & 7507 \\
-  \bottomrule
- \end{tabular}
-\captionof{table}{A dummy table in the centre of the column}
-\vspace{2cm}
-\end{center}
 
-%----------------------------------------------------------------------------------------
-%	SECTIONS
-%----------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Open Science, Open Access, Open Data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Open Science, Open Access, Open Data}
 
+ \includegraphics[width=5cm]{Poster TEX/style/Open Science.png} 
+ \hspace{\fill} 
+ \includegraphics[width=10cm]{Poster TEX/style/Open access (4).png}
+ \hspace{\fill} 
+ \includegraphics[width=5cm]{Poster TEX/style/Open data.png}
+
+Research data that results from publicly funded research should be:
+
+\color{uzhockerrot100}
+\begin{itemize}
+\item \textbf{Findable, Accessible, Interoperable, Reusable} (‘\textbf{FAIR} principles’)
+\color{black}
+\item therefore replicable, transparent, trustworthy
+\color{uzhockerrot100}
+\item \textbf{As open as possible, as closed as necessary}
+\end{itemize}
+\color{black}
+
+\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{Commission Recommendation (EU) 2018/790}} \\
+\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{on access to and preservation of scientific}} \\
+\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{information}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Next section}
-\blindtext
 
-\begin{center}\vspace{1cm}
-    \includegraphics[width=0.8\linewidth]{Figure_1}
-    \captionof{figure}{Regional map with some colours}
-\end{center}\vspace{1cm}
+\textcolor{red}{-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT} 
 
-%----------------------------------------------------------------------------------------
-%	CONCLUSIONS BOX
-%----------------------------------------------------------------------------------------
-
-%\section*{} % this dummy section draws a horizontal line above conclusions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSIONS BOX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section*{} % this dummy section draws a horizontal line above the conclusions
 \vspace{2cm}
 \begin{tcolorbox}[width=0.95\linewidth,colback={conclusion},frame empty,boxsep=1cm]
 \section{Conclusions}
-\blindtext
+
+\textcolor{red}{TEXT} 
+
 \end{tcolorbox}    
 
-%----------------------------------------------------------------------------------------
-%	FORTHCOMING RESEARCH
-%----------------------------------------------------------------------------------------
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FORTHCOMING RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Forthcoming Research}
 
-\blindtext
-\color{uzhockerrot100}
-\begin{itemize}
- \item An example of a bullet point in UZH highlight colour
- \item A second example of a bullet point, this one taking up more than one line just to see how it displays
- \item Third, short point
-\end{itemize}
-\color{Black}
+\textcolor{red}{TEXT} 
 
-%----------------------------------------------------------------------------------------
-%	REFERENCES
-%----------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acknowledgments}
+\normalsize
+This work was funded by the Swiss National Science Foundation with grant number 211751: "\textit{Harnessing event and longitudinal data in industry and health sector through privacy preserving technologies}".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \singlespacing
 \small
 \nocite{*} % Print all references regardless of whether they were cited in the poster or not
 \bibliographystyle{plain} % Plain referencing style
 \bibliography{sample} % Use the example bibliography file sample.bib
 
-%----------------------------------------------------------------------------------------
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QR code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\includegraphics[width=1\linewidth]{Poster TEX/style/qr-code.png}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{multicols}
 \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
