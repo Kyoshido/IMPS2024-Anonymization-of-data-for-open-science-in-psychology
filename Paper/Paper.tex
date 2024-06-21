@@ -22,8 +22,8 @@
 \begin{document}
 \maketitle
 
-%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 \textcolor{red}{There is a great demand for making more research data openly available. The reproducibility of findings in psychology has been questioned, and more openly available data would make research more transparent and accessible. Unfortunately, many datasets cannot be publicly available for privacy reasons. On the other hand, researchers are increasingly more expected to share data with others for review, reanalysis, and reuse. To solve this issue, we suggest using methods of Statistical Disclosure Control for data anonymisation. These methods either modify or synthesise data so that it can be disclosed without revealing confidential information that may be associated with specific respondents. In this presentation, we review the work in this area and present different anonymisation approaches that can be used to protect data confidentiality. To prove the success of data anonymisation, data utility is discussed as the main objective to be maximised while providing data with a disclosure risk below certain limits. The concepts are illustrated by means of a practical application example.}
 \end{abstract}
@@ -31,8 +31,8 @@
 \keywords{\textbf{Keywords:}
 open science, confidentiality, reproducibility, anonymization, synthetic data}
 
-%% Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Introduction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 \textcolor{red}{In this presentation, we review the work in this area and present different anonymisation approaches that can be used to protect data confidentiality.}
@@ -43,7 +43,7 @@ All started by Budapest Open Access Initiative~\cite{2012_OSI} in 2002, which wa
 
 Budapest Open Access Initiative (BOAI)~\cite{2002_OSI} define \textit{Open Access} (OA) as \textit{"free availability on the public internet, permitting any users to read, download, copy, distribute, print, search, or link to the full texts of these articles, crawl them for indexing, pass them as data to software, or use them for any other lawful purpose, without financial, legal, or technical barriers other than those inseparable from gaining access to the internet itself"}.
 
-In recommendations from 2012 BOAI~\cite{2012_OSI} further specified that \textit{"The worldwide campaign for OA to research articles should work more closely with the worldwide campaigns for OA to books, theses and dissertations, research data, government data, educational resources, and source code."}. In 2022, new recommendations~\cite{2022_OSI} for the next 10 years were released. Strong emphasis is put on Open infrastructure and its governance. It is recommended to host and publish OA texts, data, metadata, code, and other digital research outputs on open, community-controlled infrastructure. \textit{Open science} is made from open data, open metadata, open citations, open code, open protocols, open books, open theses and dissertations, open educational resources, open courseware, open digitization projects, open licenses, open standards, and open peer review.
+In recommendations from 2012 BOAI~\cite{2012_OSI} further specified that \textit{"The worldwide campaign for OA to research articles should work more closely with the worldwide campaigns for OA to books, theses and dissertations, research data, government data, educational resources, and source code."}. In 2022, new recommendations~\cite{2022_OSI} for the next 10 years were released. Strong emphasis is put on Open infrastructure and its governance. It is recommended that OA texts, data, metadata, code, and other digital research outputs be hosted and published on open, community-controlled infrastructure. \textit{Open science} is made from open data, open metadata, open citations, open code, open protocols, open books, open theses and dissertations, open educational resources, open courseware, open digitization projects, open licenses, open standards, and open peer review.
 
 From recent developments in recommendations to Open Science is necessary to mention Commission Recommendation (EU) 2018/790 of 25 April 2018 on access to and preservation of scientific information~\cite{2018_EU_2018/790}, the European University Association (EUA) Open Science Agenda 2025~\cite{2022_EUA} and UNESCO Recommendation on Open Science~\cite{2022_EUA}.
 
@@ -56,8 +56,32 @@ to make multilingual scientific knowledge openly available, accessible and
 reusable for everyone, to increase scientific collaborations and sharing of
 information for the benefits of science and society, and to open the processes of scientific knowledge creation, evaluation and communication to societal actors beyond the traditional scientific community"}. In this recommendation, UNESCO promotes open access to scientific knowledge but equally emphasises the need for tools for pseudonymizing and anonymizing data so that as much data as possible can be shared as appropriate.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Anonymization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Anonymization}
 
+Anonymization of personal information must be approached from the point of view 
+of the field of Statistical Disclosure Control (SDC). This research area is also known as Statistical disclosure limitation or Disclosure avoidance.
+Hundepool~\cite{2012_Hundepool} describes SDC as a process that seeks to protect statistical data so that it can be released without divulging confidential information that can be linked to specific individuals or entities.
 
+There are several major reasons for data anonymization, namely statistical principles, legal obligations, quality assurance, and ethical causes. 
+
+United Nations~\cite{2015_UN} lists confidentiality of the data as a sixth fundamental principle of Official Statistics. This principle states that the statistical records of individual persons, businesses, or events used to produce Official Statistics are strictly confidential and to be used only for statistical purposes. It is evident that this principle applies not only to Official Statistics but also to every other field processing sensitive information, which should secure the confidentiality of its records. The European Union defined this approach in its Code of European Statistics~\cite{2018_Eurostat} as the fifth principle — Statistical Confidentiality and Data Protection, which states that the privacy of data providers, the confidentiality of the information they provide, its use only for statistical purposes and the security of the data are absolutely guaranteed.
+
+Legislation imposes a legal obligation to protect individual business and personal data. Legal frameworks regulate what is allowed and what is not allowed regarding the publication of private information. In the member countries of the European Union, national statistical confidentiality is supported by EU legislation. The regulation of the European Parliament, better known by the abbreviation GDPR~\cite{2016_EU_2016/679}, is a pan-European legal framework for the protection of personal data, which protects the rights of citizens against unauthorized handling of their data and personal data.
+In the context of the field of psychology, it is necessary to mention the legislation of the United States of America called HIPAA~\cite{1996_HIPAA} - Health Insurance Portability and Accountability Act.
+The HIPAA Privacy Rule establishes standards for protection of individuals' medical records and other individually identifiable health information 
+
+Quality assurance corresponds with confidence of respondents in the preservation of the confidentiality of individual information. If they do not trust in the confidentiality of the data, they may not provide accurate information. United Nations~\cite{2007_UN} emphasise that its necessary to maintain the trust of respondents if they are to continue to cooperate in their data collections. If respondents perceive that confidentiality of their data will not be protected, they are less likely to provide accurate data. 
+
+Lastly disclosing information that can be linked to specific individuals or entities is unethical. Declaration on Professional Ethics~\cite{2010_ISI} set of Ethical Principles for statisticians and a wide array of creators and users of statistical data and tools. 
+Disclose information that can be directly or indirectly linked to specific individuals or entities without their consent is considered unethical. Such actions may compromise privacy, lead to potential misuse of data, and violate principles of confidentiality. Ethical considerations require careful handling of sensitive information to prevent harm and uphold respect for personal and organizational boundaries. Necessary steps must be implemented to ensure that data are released in a way that protects the confidentiality of individuals, preventing their identities from being disclosed or inferred.
+\newline
+
+The goal of SDC methods is to find an optimal solution both in terms of the risk of disclosure and in terms of the utility of protected published data.
+
+Methods intended to protect microdata are described in detail in the publications of Hundepool~\cite{2012_Hundepool}. In general, SDC methods can be divided according to when they are applied. The method can be applied directly to microdata, then we talk about pre-tabular methods, or to aggregated data in tables or hypercubes, and then we talk about post-tabular methods. The methods applied to microdata are naturally all pre-tabular methods.
+We further distinguish the methods of modifying the values into three main groups: non-perturbative methods, perturbation methods, and methods of creating synthetic and hybrid data. Non-perturbative methods adjust the detail of the data display, perturbative methods add noise to the data, and synthetic and hybrid data generation methods generate new data based on the original data. 
 
 %% Data utility %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
