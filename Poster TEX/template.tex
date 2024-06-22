@@ -8,10 +8,10 @@
 \usepackage{geometry}
  \geometry{
  a0paper,
- left=5cm,
- top=4.5cm,
- right=5cm,
- bottom=4.5cm
+ left = 5cm,
+ top = 4.5cm,
+ right = 5cm,
+ bottom = 2cm     %4.5cm
  }
 \addtolength{\textwidth}{4.5cm} % width of text can be adjusted if margins above are adjusted
 
@@ -167,22 +167,8 @@
 \section{BACKGROUND}
 
 There is a great demand for more research data to be made openly available.
-Many psychological datasets contain demographic and health variables that require proper protection against disclosure.
+Many psychological datasets contain \textbf{demographic and health variables} that \textbf{require proper protection against disclosure}.
 Unfortunately, many datasets cannot be publicly available for privacy reasons.
-\bigbreak
-To enable dissemination and, therefore, to open data, we can use these methods:
-\begin{itemize}
-     \item[\ding{228}] \textbf{Statistical Disclosure Control (SDC)}
-        \begin{itemize}
-            \item protects the data
-            \item prevents re-identification
-        \end{itemize}        
-     \item[\ding{228}] \textbf{Synthetic data generation}
-        \begin{itemize}
-            \item mimics the original data
-            \item creates artificial data that can be safely disseminated
-        \end{itemize}        
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Open Science, Open Access, Open Data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,9 +184,9 @@ Research data that results from publicly funded research should be:
 
 \color{uzhockerrot100}
 \begin{itemize}
-\item \textbf{Findable, Accessible, Interoperable, Reusable} (‘\textbf{FAIR} principles’)
+\item \textbf{Findable, Accessible, Interoperable, Reusable} (‘\textbf{FAIR} principles’) \cite{2022_EUA}
 \color{black}
-\item therefore replicable, transparent, trustworthy
+\item therefore replicable, transparent, trustworthy, verifiable and accountable
 \color{uzhockerrot100}
 \item \textbf{As open as possible, as closed as necessary}
 \end{itemize}
@@ -209,6 +195,42 @@ Research data that results from publicly funded research should be:
 \href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{Commission Recommendation (EU) 2018/790}} \\
 \href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{on access to and preservation of scientific}} \\
 \href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32018H0790&qid=1701691098601}{\color{blue}\underline{information}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% METHODOLOGY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{METHODOLOGY}
+
+A key concern with the disclosure of personal data is whether an attacker can gain any new information about an individual. \\
+To enable dissemination and, therefore, to open data, researchers may use methods of \textbf{Statistical Disclosure Control (SDC)} \cite{2012_Hundepool}
+
+\begin{itemize}
+    \item[\ding{228}]  \textbf{SDC} is traditional approach to protecting outputs against re-identification
+        \begin{itemize}
+            \item \textbf{Non-perturbation methods} (reduce provided information)
+                \begin{itemize}
+                    \item Local suppression (delete high-risk records)
+                    \item Global recoding (create broader categories)
+                \end{itemize}   
+            \item \textbf{Perturbation methods} (modify data)
+                \begin{itemize}
+                    \item Noise masking
+                    \item Record swapping
+                    \item Microaggregaation
+                \end{itemize}             
+        \end{itemize}   
+\end{itemize}
+
+\textbf{Traditional SDC methods alone are insufficient to protect data}. It is necessary to also use a more modern approach.
+
+\begin{itemize}
+     \item[\ding{228}] \textbf{Synthetic data generation}
+        \begin{itemize}
+            \item mimics the original data
+            \item creates artificial data that can be safely disseminated
+        \end{itemize}        
+\end{itemize}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SECTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
