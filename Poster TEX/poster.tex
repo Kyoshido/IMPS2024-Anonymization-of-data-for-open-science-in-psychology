@@ -35,7 +35,6 @@
 
 \usepackage{ifthen} % needed to stop horizontal line above 'Conclusions' section
 \usepackage{graphicx} % Required for including images
-\graphicspath{{figures/}} % Location of the graphics files
 \usepackage{mwe,tikz}\usepackage[percent]{overpic} % overlay your photo over the background
 \usepackage{booktabs} % Top and bottom rules for table
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
@@ -69,6 +68,8 @@
 \usepackage{nameref} % package and command to get the name of the current section (for ifthen)
 \usepackage{hyperref} % Hyperlinks
 \usepackage{pifont} % More styles for bullets
+
+\usepackage{float}    % Required for the [H] option in figure environment
 
 % Start of the poster %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,33 +128,28 @@
 
 % Header formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The header is divided into two boxes, on the left is the text and on the right is the image
-\begin{minipage}[b][][t]{.6\linewidth}
+\begin{minipage}[t]{.7\linewidth}
 \vfill
 \makeatletter
-\raggedright{\fontsize{92pt}{100pt}\selectfont\color{uzhblau100}\textbf{{\@title}}\par}
+\raggedright{\fontsize{130pt}{100pt}\selectfont\color{uzhblau100}\textbf{{\@title}}\par}
 \makeatother
 \color{Black}
 \vspace{1cm}
-
-% Subtitle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\Huge\textit{Subtitle goes here}\\[2.4cm] % Subtitle if it exists
-
+\end{minipage}
 % Author(s) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\underline{Jiří Novák\textsuperscript{1,2,3}} \\
+\begin{minipage}[t]{.3\linewidth}
+\vfill
+\raggedleft
+\Large
+\underline{Jiří Novák}\textsuperscript{1,2,3} \\
 \vspace{0.2cm}
-\textsuperscript{1} University of Zürich, Psychological Methods, Evaluation and Statistics \\
-\textsuperscript{2} University of Applied Sciences and Arts Northwestern Switzerland, Institute for Competitiveness and Communication \\
+\large
+\textsuperscript{1} University of Zürich \\
+\textsuperscript{2} University of Applied Sciences and Arts Northwestern Switzerland  \\
 \textsuperscript{3} Swiss Data Anonymization Competence Center
 %\texttt{you@uzh.ch}%\\ % add your email
 \end{minipage}
-%
-\begin{minipage}[b][][t]{0.388\linewidth}
-\vfill
-  \begin{overpic}[width=.8\textwidth,right]{LIRI_WissPoster_Wasserzeichen.png
-  } % what even is this thing?
-     \put(85,0){\includegraphics[scale=0.25]{Poster TEX/style/JN.png}}  % your image goes in here
-  \end{overpic}
-\end{minipage}
+
 \vspace{1cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,8 +204,8 @@ To enable dissemination and, therefore, to open data, researchers may use method
         \begin{itemize}
             \item \textbf{Non-perturbation methods} (reduce provided information)
                 \begin{itemize}
-                    \item Local suppression (delete high-risk records)
-                    \item Global recoding (create broader categories)
+                    \item Local suppression %(delete high-risk records)
+                    \item Global recoding %(create broader categories)
                 \end{itemize}   
             \item \textbf{Perturbation methods} (modify data)
                 \begin{itemize}
@@ -234,28 +230,25 @@ To enable dissemination and, therefore, to open data, researchers may use method
 % ILLUSTRATIVE EXAMPLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{ILLUSTRATIVE EXAMPLE}
 
-
-
-
+As the example data were used 
+\href{https://rdrr.io/cran/lavaan/man/HolzingerSwineford1939.html}{\color{blue}\underline{Holzinger and}} 
+\href{https://rdrr.io/cran/lavaan/man/HolzingerSwineford1939.html}
+{\color{blue}\underline{Swineford Dataset}}.
+The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}}
+ or for complex data in \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
 
 % DATA UTILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{DATA UTILITY}
 
 \textit{Data utility} is the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
 
+\vspace{1cm}
+%\textbf{Difference in Correlations Between Original and Synthetic dataset}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Corr.png}
+\captionof{figure}{Difference in Correlations Between Original and Synthetic dataset}
+
+
 \textcolor{red}{
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
@@ -276,15 +269,6 @@ TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 } 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CONCLUSIONS BOX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section*{} % this dummy section draws a horizontal line above the conclusions
-%\vspace{2cm}
-%\begin{tcolorbox}[width=0.95\linewidth,colback={conclusion},frame empty,boxsep=1cm]
-%\section{Conclusions}
-%\textcolor{red}{TEXT} 
-%\end{tcolorbox}    
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORTHCOMING RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Forthcoming Research}
 
@@ -293,18 +277,20 @@ We will focus on the anonymization of longitudinal data.
 Given the sensitive nature of health data, we aim to develop and implement innovative tools for generating synthetic longitudinal data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Acknowledgments}
-\normalsize
-This work was funded by the Swiss National Science Foundation with grant number 211751: "\textit{Harnessing event and longitudinal data in industry and health sector through privacy preserving technologies}".
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \singlespacing
 \small
 \nocite{*} % Print all references regardless of whether they were cited in the poster or not
 \bibliographystyle{plain} % Plain referencing style
 \bibliography{sample} % Use the example bibliography file sample.bib
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acknowledgments}
+\normalsize
+This work was funded by the Swiss National Science Foundation with grant number 211751: "\textit{Harnessing event and longitudinal data in industry and health sector through privacy preserving technologies}".
+
+\vspace{0.5cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QR code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
