@@ -162,10 +162,11 @@
 % BACKGROUND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{BACKGROUND}
 
-There is a great demand for more research data to be made openly available.
+There is a growing demand for more research data to be made openly available.
 The reproducibility of findings is in crisis, and more openly available data would make research more transparent and accessible.
-Many psychological datasets contain \textbf{demographic and health variables} that \textbf{require proper protection against disclosure}.
-Unfortunately, many datasets cannot be publicly available for privacy reasons.
+However, \textbf{psychological datasets often include sensitive demographic and health information that necessitates robust privacy protection}.
+% Many psychological datasets contain \textbf{demographic and health variables} that \textbf{require proper protection against disclosure}.
+% Unfortunately, many datasets cannot be publicly available for privacy reasons.
 
 % OPEN SCIENCE, OPEN ACCESS, OPEN DATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{OPEN SCIENCE, OPEN ACCESS, OPEN DATA}
@@ -219,7 +220,8 @@ To enable dissemination and, therefore, to open data, researchers may use method
         \end{itemize}   
 \end{itemize}
 
-\textbf{Traditional SDC methods alone are insufficient to protect data given today's threats}. It's necessary to use a more modern approach.
+\textbf{Traditional SDC methods are increasingly inadequate to protect data given today's threats}, necessitating advanced techniques. 
+%It's necessary to use a more modern approach.
 
 \begin{itemize}
      \item[\ding{228}] \textbf{Synthetic data generation}
@@ -240,20 +242,15 @@ As the example data were used
 The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}}
  or for complex data in \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
 
-\textcolor{red}{
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-} 
+\vspace{1cm}
+
+In our study, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
 
 % DATA UTILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{DATA UTILITY}
 
-\textit{Data utility} is the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
+\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
+Balancing data utility and privacy is essential. High utility ensures synthetic data's effectiveness for research, while privacy measures minimize re-identification risk.
 
 \vspace{1cm}
 %\textbf{Difference in Correlations Between Original and Synthetic dataset}
