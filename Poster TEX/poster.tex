@@ -178,12 +178,12 @@ Unfortunately, many datasets cannot be publicly available for privacy reasons.
 
 Research data that results from publicly funded research should be:
 
-\color{uzhockerrot100}
+%\color{uzhockerrot100}
 \begin{itemize}
 \item \textbf{Findable, Accessible, Interoperable, Reusable} (‘\textbf{FAIR} principles’) \cite{2022_EUA}
-\color{black}
+%\color{black}
 \item therefore replicable, transparent, trustworthy, verifiable and accountable
-\color{uzhockerrot100}
+%\color{uzhockerrot100}
 \item \textbf{As open as possible, as closed as necessary}
 \end{itemize}
 \color{black}
@@ -199,6 +199,7 @@ Research data that results from publicly funded research should be:
 A key concern with the disclosure of personal data is whether an attacker can gain any new information about an individual. \\
 To enable dissemination and, therefore, to open data, researchers may use methods of \textbf{Statistical Disclosure Control (SDC)} \cite{2012_Hundepool}
 
+\vspace{1cm}
 \begin{itemize}
     \item[\ding{228}]  \textbf{SDC} is traditional approach to protecting outputs against re-identification
         \begin{itemize}
@@ -207,6 +208,8 @@ To enable dissemination and, therefore, to open data, researchers may use method
                     \item Local suppression %(delete high-risk records)
                     \item Global recoding %(create broader categories)
                 \end{itemize}   
+\columnbreak % Force the end of the column 
+\vspace{1cm}
             \item \textbf{Perturbation methods} (modify data)
                 \begin{itemize}
                     \item Noise masking
@@ -216,7 +219,7 @@ To enable dissemination and, therefore, to open data, researchers may use method
         \end{itemize}   
 \end{itemize}
 
-\textbf{Traditional SDC methods alone are insufficient to protect data}. It is necessary to also use a more modern approach.
+\textbf{Traditional SDC methods alone are insufficient to protect data given today's threats}. It's necessary to use a more modern approach.
 
 \begin{itemize}
      \item[\ding{228}] \textbf{Synthetic data generation}
@@ -237,17 +240,6 @@ As the example data were used
 The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}}
  or for complex data in \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
 
-% DATA UTILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{DATA UTILITY}
-
-\textit{Data utility} is the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
-
-\vspace{1cm}
-%\textbf{Difference in Correlations Between Original and Synthetic dataset}
-\includegraphics[width=1\linewidth]{Poster TEX/figures/Corr.png}
-\captionof{figure}{Difference in Correlations Between Original and Synthetic dataset}
-
-
 \textcolor{red}{
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
@@ -256,6 +248,27 @@ TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
+} 
+
+% DATA UTILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{DATA UTILITY}
+
+\textit{Data utility} is the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
+
+\vspace{1cm}
+%\textbf{Difference in Correlations Between Original and Synthetic dataset}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Histogram_ageyr.png}
+\captionof{figure}{Difference in Correlations Between Original and Synthetic dataset}
+
+
+\columnbreak % Force the end of the column 
+
+\vspace{1cm}
+%\textbf{Difference in Correlations Between Original and Synthetic dataset}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Correlation_Difference.png}
+\captionof{figure}{Difference in Correlations Between Original and Synthetic dataset}
+
+\textcolor{red}{
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
 TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
@@ -282,7 +295,7 @@ Given the sensitive nature of health data, we aim to develop and implement innov
 \small
 \nocite{*} % Print all references regardless of whether they were cited in the poster or not
 \bibliographystyle{plain} % Plain referencing style
-\bibliography{sample} % Use the example bibliography file sample.bib
+\bibliography{bib} % Use the example bibliography file sample.bib
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
