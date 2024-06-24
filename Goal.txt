@@ -1,0 +1,4 @@
+1# we review the work in this area and present different anonymisation approaches that can be used to protect data confidentiality
+2# To prove the success of data anonymisation, data utility is discussed as the main objective to be maximised while providing data with a disclosure risk below certain limits. 
+
+3# The concepts are illustrated by means of a practical application example.
