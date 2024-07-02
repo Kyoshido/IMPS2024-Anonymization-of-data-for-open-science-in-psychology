@@ -183,7 +183,7 @@ Research data that results from publicly funded research should be:
 \begin{itemize}
 \item \textbf{Findable, Accessible, Interoperable, Reusable} (‘\textbf{FAIR} principles’) \cite{2022_EUA}
 %\color{black}
-\item therefore replicable, transparent, trustworthy, verifiable and accountable
+\item therefore replicable, transparent, shareable, trustworthy, verifiable and accountable
 %\color{uzhockerrot100}
 \item \textbf{As open as possible, as closed as necessary}
 \end{itemize}
@@ -204,16 +204,18 @@ To enable dissemination and, therefore, to open data, researchers may use method
 
 \vspace{1cm}
 \begin{itemize}
-    \item[\ding{228}]  \textbf{SDC} is traditional approach to protecting outputs against re-identification
+    \item[\ding{228}]  \textbf{SDC} is the traditional approach to protecting outputs against re-identification
         \begin{itemize}
-            \item \textbf{Non-perturbation methods} (reduce provided information)
+            \item \textbf{Non-perturbation methods} (alter data without changing its actual values)
                 \begin{itemize}
                     \item Local suppression %(delete high-risk records)
                     \item Global recoding %(create broader categories)
+                    \item Top and bottom coding
+                    \item Sampling
                 \end{itemize}   
-\columnbreak % Force the end of the column 
+\columnbreak % Force the end of the column -------------------------------------
 \vspace{1cm}
-            \item \textbf{Perturbation methods} (modify data)
+            \item \textbf{Perturbation methods} (modify data) %(add noise or alter data so it modifies  data)
                 \begin{itemize}
                     \item Noise masking
                     \item Record swapping
@@ -222,7 +224,7 @@ To enable dissemination and, therefore, to open data, researchers may use method
         \end{itemize}   
 \end{itemize}
 
-\textbf{Traditional SDC methods are increasingly inadequate to protect data given today's threats}, necessitating advanced techniques. 
+\textbf{Due to today's threats, traditional SDC methods are increasingly inadequate to protect data}, necessitating advanced techniques. 
 %It's necessary to use a more modern approach.
 
 \begin{itemize}
@@ -246,12 +248,12 @@ The anonymization with synthetization may be performed in R package \href{https:
 
 \vspace{1cm}
 
-In our study, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
+In our example, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
 
 % DATA UTILITY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{DATA UTILITY}
 
-\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So there is \textbf{risk-utility trade-off}.
+\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So, there is a \textbf{risk-utility trade-off}.
 Balancing data utility and privacy is essential. High utility ensures synthetic data's effectiveness for research, while privacy measures minimize re-identification risk.
 
 %\vspace{1cm}
@@ -271,8 +273,8 @@ Balancing data utility and privacy is essential. High utility ensures synthetic 
 \captionof{figure}{Difference in distributions between Original and Synthetic dataset}
 
 \vspace{1cm}
-To evaluate the success of the synthetic data generation, we compared the synthetic dataset to the original using visual and statistical methods, focusing on distributions and correlations to ensure accurate representation.
-
+%To evaluate the success of the synthetic data generation, we compared the synthetic dataset to the original using visual and statistical methods, focusing on distributions and correlations to ensure accurate representation.
+One approach to assessing the effectiveness of synthetic data generation is to compare the synthetic dataset to the original using both visual and statistical methods, focusing on distributions and correlations to ensure accurate representation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORTHCOMING RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
