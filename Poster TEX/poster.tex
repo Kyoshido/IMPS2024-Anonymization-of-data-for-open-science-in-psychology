@@ -70,6 +70,9 @@
 \usepackage{pifont} % More styles for bullets
 \usepackage{float}    % Required for the [H] option in the figure environment
 
+\usepackage{booktabs}  
+\usepackage{array} 
+
 % Start of the poster %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,7 +163,8 @@
 % POSTER BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{multicols}{3} % This is how many columns your poster will be broken into
 
-\large %font size
+%\large %font size
+\normalsize
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Background %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background}
@@ -182,7 +186,8 @@ personal information that necessitates privacy protection}.
 \hspace{\fill} 
 \includegraphics[width=5cm]{Poster TEX/style/Open data.png}
 
-Research data that results from publicly funded research should be:
+%Research d
+Data that results from publicly funded research should be:
 
 %\color{uzhockerrot100}
 \begin{itemize}
@@ -202,30 +207,33 @@ Research data that results from publicly funded research should be:
 % Methodology %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 
-A key concern with the disclosure of personal data is whether an attacker can gain any new information about an individual. 
+% A key concern with the disclosure of personal data is whether an attacker can gain any new information about an individual. 
+% An attacker can gain new information about an individual. 
+% JN: It sounds so hollow just like this.
 
-%\vspace{0.5cm}
-To enable dissemination and, therefore, to open data, researchers may use methods of \textbf{Statistical Disclosure Control (SDC)} \cite{2017_Templ}. %\cite{2012_Hundepool}.
+% To enable dissemination and, therefore, to open data, researchers may use methods of \textbf{Statistical Disclosure Control (SDC)} \cite{2017_Templ}. %\cite{2012_Hundepool}.
+
+Released data can provide attackers with new information about specific respondents. For safe dissemination, researchers may use \textbf{Statistical Disclosure Control} (SDC) methods \cite{2017_Templ}:
 
 %\vspace{1cm}
 \begin{itemize}
-    \item[\ding{228}]  \textbf{SDC} is the traditional approach to protect data against re-identification
+    \item[\ding{228}] The traditional approach to protect data
         \begin{itemize}
-            \item[\textbullet] \textbf{Non-perturbation methods} (partially suppressing or reducing details) \\
-            e.g. Local suppression, %(delete high-risk records)
+            \item[\textbullet] \textbf{Non-perturbation methods} (partially suppressing or reducing details) e.g. Local suppression, %(delete high-risk records)
             Global recoding, %(create broader categories)
             Top and bottom coding, Sampling  
             \item[\textbullet] \textbf{Perturbation methods} (modifying data) \\ %(add noise or alter data so it modifies  data) \
-            e.g. Adding Noise, Record swapping, \\ Microaggregaation
-                         
+            e.g. Adding noise, Record swapping,  Microaggregation
         \end{itemize}   
 \end{itemize}
 
 \begin{itemize}
-     \item[\ding{228}] \textbf{Synthetic data generation} (creating artificial data that  mimics the original data and can be safely \\ disseminated)
+     \item[\ding{228}] \textbf{Synthetic data generation} to create artificial data that mimics the original data and can be safely disseminated
         \begin{itemize}
-            \item[\textbullet] \textbf{Parametric methods} (statistical models)
-            \item[\textbullet] \textbf{Non-parametric methods} (machine learning, \\ neural networks - GAN)
+            %\item[\textbullet] \textbf{Parametric methods} (statistical models)
+            %\item[\textbullet] \textbf{Non-parametric methods} (machine learning, \\ neural networks - GAN)
+            \item[\textbullet] \textbf{Joint modeling}  - captures entire data distribution simultaneously, e.g. neural networks (GAN)
+            \item[\textbullet] \textbf{Conditional/sequential modeling} - generates data variable by variable, e.g. parametric (regression) or non-parametric (CART) methods
         \end{itemize}        
 \end{itemize}
 
@@ -233,52 +241,101 @@ To enable dissemination and, therefore, to open data, researchers may use method
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Example of anonymization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Example of anonymization}
+\section{Example of synthetic data generation}
 
-Let's suppose that we are obliged to share data openly while protecting participants' privacy and aligning with open science goals.
+Let's suppose that we are obliged to share data 
+% openly while protecting participants' privacy and aligning with open science goals.
+while reducing the risk that an attacker learns something new about respondents.
 
 \begin{itemize}
     \item[\ding{228}] \textbf{Dataset Description}
         \begin{itemize}   
-            \item[\textbullet] The data for this example is from the Alzheimer’s Disease Dataset [4].
-            \item[\textbullet] Includes variables such as patient info, demographics, lifestyle, medical history, measurements, symptoms, and diagnosis.  
+            \item[\textbullet] The data for this example is from the Answers to the Machivallianism Test, a version of the MACH-IV from Christie and Geis (1970) \cite{Data}.
+            \item[\textbullet] Includes variables about Likert-rated items and demographic/other items.
         \end{itemize}
 %The dataset utilized for this anonymization example is sourced from the Alzheimer's Disease Dataset \cite{2024_Alzheimer}. It includes variables such as patient info, demographics, lifestyle, medical history, clinical measurements, symptoms, and diagnosis.
     \item[\ding{228}] \textbf{Anonymization tools}
         \begin{itemize}   
-            \item[\textbullet] Synthetization was performed using the R package  \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}} \cite{2022_Synthpop}.
-            \item[\textbullet]  For SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} \cite{2024_Sdcmicro} or for complex data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}} \cite{2022_Simpop}.
+            \item[\textbullet] Synthetization was performed using the R package  \href{https://cran.r-project.org/web/packages/synthpop/index.html} {\color{blue}\underline{synthpop}} \cite{2022_Synthpop} with method CART.
+            \item[\textbullet]  For traditional SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} \cite{2024_Sdcmicro} or for simulation of  complex synthetic data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}~\cite{2022_Simpop}.
         \end{itemize}
 %The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}} \cite{2022_Synthpop}. For SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} or for complex data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
 \end{itemize}
 
-In our example, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
+ %In our example, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
+
+\columnbreak % Force the end of the column -------------------------------------
 
 % Data utility %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data utility}
 
-\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. On the other side stands \textit{re-identification risk}, which is the risk that an intruder can link a record in the released data to a specific individual in the population. So, there is a \textbf{risk-utility trade-off}.
-Balancing data utility and privacy is essential. High utility ensures synthetic data's effectiveness for research, while privacy measures minimize re-identification risk.
+\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. 
+The utility of synthetic data is measured by how the results from analyses of synthetic data differ from those derived from the real data.
+There is also a \textbf{risk-utility trade-off}.
+% Balancing data utility and privacy is essential. High utility ensures synthetic data's effectiveness for research, while privacy measures minimize re-identification risk.
 
-\vspace{0.5cm}
-\includegraphics[width=1\linewidth]{Poster TEX/figures/Correlation_Difference.png}
-\captionof{figure}{Difference in correlations between Original and Synthetic dataset}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Hist_box_age_v5.png}
+\captionof{figure}{Difference in age distribution between Original and Synthetic dataset}
 
-The plot illustrates the differences in correlation between the original and synthetic datasets for various numerical variables. Each cell in the heatmap represents the absolute difference in correlation coefficients between the corresponding pairs of variables in the original and synthetic data.
+\vspace{1cm}
 
-\begin{itemize}
-    \item The predominantly green color indicates that the correlation differences between the original and synthetic datasets are generally small.
-    \item The few white suggest areas where the differences in correlation are slightly higher, but these are sparse and not indicative of significant deviations.
-\end{itemize}
+The plot for the variable shows the age distribution for both the original and synthetic datasets.
+The similarity in the histograms and boxplots suggests that the synthetic data maintains the original data's variability and distribution characteristics.
+
+\vspace{1cm}
+
+Propensity Mean Squared Error ($pMSE$) and its Standardized Ratio ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ is derived from a propensity score model, where the propensity score is the probability that a given data point belongs to the synthetic dataset rather than the original dataset. A lower $pMSE$ indicates better similarity between the datasets.
+$S_{pMSE}$ accounts for the expected mean squared error if the datasets were perfectly separable. It normalizes the $pMSE$ by dividing it by the $pMSE$ of a "null" model where the datasets are completely random.
+
+\begin{equation}
+\text{$pMSE$} = \frac{1}{N} \sum_{i=1}^{N} (P_i - Y_i)^2 \quad
+S_{pMSE} = \frac{\text{$pMSE$}}{\text{$pMSE$}_{\text{null}}}
+\end{equation}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{lrrr}
+  \toprule
+Variable & $pMSE$ & $S_{pMSE}$ & df \\ 
+  \midrule
+  age & 0.000001 & 0.380055 & 4 \\ 
+  gender & 0.000000 & 0.456684 & 1 \\ 
+  married & 0.000001 & 0.296588 & 3 \\ 
+  religion & 0.000010 & 0.927885 & 12 \\ 
+  education & 0.000002 & 0.684630 & 3 \\ 
+  urban & 0.000001 & 0.458887 & 3 \\ 
+  engnat & 0.000002 & 1.952587 & 1 \\ 
+  hand & 0.000001 & 0.220005 & 3 \\ 
+  orientation & 0.000002 & 0.366338 & 5 \\ 
+%  race & 0.000008 & 1.262795 & 7 \\ 
+%  voted & 0.000001 & 0.435028 & 2 \\ 
+%  familysize & 0.000006 & 3.208686 & 2 \\ 
+   \bottomrule
+\end{tabular}
+\caption{Comparison of $pMSE$ and $S_{pMSE}$  for different variables} 
+\label{tab:pmse}
+\end{center}
+
+The variable \textit{age} shows a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.380055, indicating a close match between the synthetic and original datasets. Similarly, \textit{gender} exhibits an extremely low $pMSE$ and an $S_{pMSE}$ of 0.456684, suggesting excellent similarity. For \textit{married} status, the $pMSE$ is 0.000001 with an $S_{pMSE}$ of 0.296588, reflecting strong similarity between the datasets.
+
+The variable \textit{religion} has a slightly higher $pMSE$ of 0.000010 and an $S_{pMSE}$ of 0.927885, indicating that while the datasets are fairly similar, some differences exist. \textit{Education} shows moderate similarity with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.684630. The \textit{urban} variable has a low $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.458887, denoting good similarity.
+
+However, \textit{engnat} (native English speaker status) presents a higher $S_{pMSE}$ of 1.952587, indicating differences between the datasets. Variable \textit{hand} demonstrates excellent similarity with a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.220005. \textit{Orientation} is similar, with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.366338.
+
+%Race has a $pMSE$ of 0.000008 and an $S_{pMSE}$ of 1.262795, suggesting some distinguishable differences between the datasets. The variable voted shows strong similarity with a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.435028. Lastly, familysize stands out with the highest $S_{pMSE}$ of 3.208686 and a $pMSE$ of 0.000006, indicating significant differences between the original and synthetic data for this variable. Overall, while most variables show strong similarity between the datasets, engnat, race, and familysize may require further refinement in the synthetic data generation process to achieve better alignment with the original data.
+
 
 \columnbreak % Force the end of the column -------------------------------------
 
-\includegraphics[width=1\linewidth]{Poster TEX/figures/Mosaic_orig.png}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Mosaic_orig_v5.png}
 
-\includegraphics[width=1\linewidth]{Poster TEX/figures/Mosaic_synt}
+\includegraphics[width=1\linewidth]{Poster TEX/figures/Mosaic_synt_v5.png}
 \captionof{figure}{Mosaic plots for selected variables}
 
-The mosaic plots display differences in structure for categorical data. In this case, the synthetic and original datasets show highly similar distributions across the variables Gender, Ethnicity, and EducationLevel. This similarity indicates that the synthetic data effectively preserves the relationships and proportions present in the original data, maintaining its analytical utility.
+\vspace{1cm}
+
+The mosaic plots display differences in structure for categorical data. In this case, the synthetic and original datasets show highly similar distributions across the variables \textit{gender}, \textit{education}, and \textit{engnat}. This similarity indicates that the synthetic data effectively preserves the relationships and proportions present in the original data and its analytical utility.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORTHCOMING RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -300,9 +357,11 @@ The goal of our SNSF\textsuperscript{\ding{107}}-funded project is developing an
 % REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \singlespacing
 \small
-\nocite{*} % Print all references regardless of whether they were cited in the poster or not
-\bibliographystyle{plain} % Plain referencing style
+%\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+%\bibliographystyle{plain} % Plain referencing style
 %\bibliographystyle{plainurl}
+%\bibliographystyle{ieeetr}
+\bibliographystyle{unsrt}
 \bibliography{bib} % Use the example bibliography file sample.bib
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

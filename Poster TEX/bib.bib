@@ -3,10 +3,9 @@
 	title = {Statistical disclosure control for microdata},
 	isbn = {978-3-319-50270-0},
 	publisher = {Springer Berlin Heidelberg},
-	author = {Templ, M.},
+	author = {Templ, Matthias},
 	year = {2017},
 }
-
 
 @book{2012_Hundepool,
 	address = {Chichester, West Sussex, United Kingdom},
@@ -14,7 +13,7 @@
 	title = {Statistical disclosure control},
 	isbn = {978-1-118-34821-5 978-1-118-34820-8 978-1-118-34822-2},
 	publisher = {Wiley},
-	author = {Hundepool, A.},
+	author = {Hundepool, Anco},
 	year = {2012},
 	keywords = {Confidential communications, MATHEMATICS / Probability \& Statistics / General, Statistical services}
 }
@@ -44,24 +43,48 @@
 	year={2024}
 }
 
-@software{2022_Synthpop,
-	title = {synthpop: Generating Synthetic Versions of Sensitive Microdata for Statistical Disclosure Control},
-	url = {https://cran.r-project.org/web/packages/synthpop/index.html},
-	author = {Nowok, B. and Raab, G. M and Dibben, Ch. and Snoke, J. and Lissa, C. van},
-	date = {2022},
+@article{2022_Synthpop,
+ title={synthpop: Bespoke Creation of Synthetic Data in R},
+ volume={74},
+ url={https://www.jstatsoft.org/index.php/jss/article/view/v074i11},
+ doi={10.18637/jss.v074.i11},
+ abstract={In many contexts, confidentiality constraints severely restrict access to unique and valuable microdata. Synthetic data which mimic the original observed data and preserve the relationships between variables but do not contain any disclosive records are one possible solution to this problem. The synthpop package for R, introduced in this paper, provides routines to generate synthetic versions of original data sets. We describe the methodology and its consequences for the data characteristics. We illustrate the package features using a survey data example.},
+ number={11},
+ journal={Journal of Statistical Software},
+ author={Nowok, Beata and Raab, Gillian M. and Dibben, Chris},
+ year={2016},
+ pages={1–26}
 }
 
-@software{2024_Sdcmicro,
-	location = {R package version 5.7.8},
-	title = {{sdcMicro}: Statistical Disclosure Control Methods for Anonymization of Data and Risk Estimation},
-	url = {https://CRAN.R-project.org/package=sdcMicro},
-	author = {Templ, M. and Meindl, B. and Kowarik, A. and Gussenbauer, J.},
-	date = {2024-03-11},
+@article{2024_Sdcmicro,
+ title={Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro},
+ volume={67},
+ url={https://www.jstatsoft.org/index.php/jss/article/view/v067i04},
+ doi={10.18637/jss.v067.i04},
+ abstract={The demand for data from surveys, censuses or registers containing sensible information on people or enterprises has increased significantly over the last years. However, before data can be provided to the public or to researchers, confidentiality has to be respected for any data set possibly containing sensible information about individual units. Confidentiality can be achieved by applying statistical disclosure control (SDC) methods to the data in order to decrease the disclosure risk of data.&amp;lt;br /&amp;gt;The R package sdcMicro serves as an easy-to-handle, object-oriented S4 class implementation of SDC methods to evaluate and anonymize confidential micro-data sets. It includes all popular disclosure risk and perturbation methods. The package performs automated recalculation of frequency counts, individual and global risk measures, information loss and data utility statistics after each anonymization step. All methods are highly optimized in terms of computational costs to be able to work with large data sets. Reporting facilities that summarize the anonymization process can also be easily used by practitioners. We describe the package and demonstrate its functionality with a complex household survey test data set that has been distributed by the International Household Survey Network.},
+ number={4},
+ journal={Journal of Statistical Software},
+ author={Templ, Matthias and Kowarik, Alexander and Meindl, Bernhard},
+ year={2015},
+ pages={1–36}
 }
 
-@software{2022_Simpop,
-	title = {{simPop}: Simulation of Complex Synthetic Data Information},
-	url = {https://cran.r-project.org/web/packages/simPop/index.html},
-	author = {Templ, M. and Kowarik, A. and Meindl, B. and Alfons, A. and Ribatet, M. and Gussenbauer, J. and Fritzmann, S.},
-	date = {2022},
+@article{2022_Simpop,
+ title={Simulation of Synthetic Complex Data: The R Package simPop},
+ volume={79},
+ url={https://www.jstatsoft.org/index.php/jss/article/view/v079i10},
+ doi={10.18637/jss.v079.i10},
+ abstract={The production of synthetic datasets has been proposed as a statistical disclosure control solution to generate public use files out of protected data, and as a tool to create &amp;quot;augmented datasets&amp;quot; to serve as input for micro-simulation models. Synthetic data have become an important instrument for ex-ante assessments of policy impact. The performance and acceptability of such a tool relies heavily on the quality of the synthetic populations, i.e., on the statistical similarity between the synthetic and the true population of interest. Multiple approaches and tools have been developed to generate synthetic data. These approaches can be categorized into three main groups: synthetic reconstruction, combinatorial optimization, and model-based generation. We provide in this paper a brief overview of these approaches, and introduce simPop, an open source data synthesizer. simPop is a user-friendly R package based on a modular object-oriented concept. It provides a highly optimized S4 class implementation of various methods, including calibration by iterative proportional fitting and simulated annealing, and modeling or data fusion by logistic regression. We demonstrate the use of simPop by creating a synthetic population of Austria, and report on the utility of the resulting data. We conclude with suggestions for further development of the package.},
+ number={10},
+ journal={Journal of Statistical Software},
+ author={Templ, Matthias and Meindl, Bernhard and Kowarik, Alexander and Dupriez, Olivier},
+ year={2017},
+ pages={1–38}
+}
+
+@misc{Data,
+ author={Richard Christie and Florence L. Geis},
+	title = {Answers to the Machivallianism Test, a version of the {MACH}-{IV}, https://openpsychometrics.org/\_rawdata/},
+	url = {https://openpsychometrics.org/_rawdata/},
+	date = {2019},
 }
