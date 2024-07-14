@@ -170,7 +170,7 @@
 \section{Background}
 
 There is a growing demand for more research data to be made openly available.
-The reproducibility of findings is in crisis, and more openly available data would make research more transparent and accessible.
+The reproducibility of findings is in crisis \cite{2015_OSC}, and more openly available data would make research more transparent and accessible.
 
 However, \textbf{psychological datasets often include sensitive %demographic and health
 personal information that necessitates privacy protection}.
@@ -217,13 +217,13 @@ Released data can provide attackers with new information about specific responde
 
 %\vspace{1cm}
 \begin{itemize}
-    \item[\ding{228}] The traditional approach to protect data
+    \item[\ding{228}] The traditional approach to protecting data
         \begin{itemize}
-            \item[\textbullet] \textbf{Non-perturbation methods} (partially suppressing or reducing details) e.g. Local suppression, %(delete high-risk records)
+            \item[\textbullet] \textbf{Non-perturbation methods} (partially suppressing or reducing details), e.g. Local suppression, %(delete high-risk records)
             Global recoding, %(create broader categories)
             Top and bottom coding, Sampling  
-            \item[\textbullet] \textbf{Perturbation methods} (modifying data) \\ %(add noise or alter data so it modifies  data) \
-            e.g. Adding noise, Record swapping,  Microaggregation
+            \item[\textbullet] \textbf{Perturbation methods} (modifying data)%(add noise or alter data so it modifies  data) \
+            , e.g. Adding noise, Record swapping,  Microaggregation
         \end{itemize}   
 \end{itemize}
 
@@ -250,14 +250,19 @@ while reducing the risk that an attacker learns something new about respondents.
 \begin{itemize}
     \item[\ding{228}] \textbf{Dataset Description}
         \begin{itemize}   
-            \item[\textbullet] The data for this example is from the Answers to the Machivallianism Test, a version of the MACH-IV from Christie and Geis (1970) \cite{Data}.
+            \item[\textbullet] The data for this example is from the Answers to the Machivallianism Test, a version of the MACH-IV from Christie and Geis \cite{Data}, which comprises 73,489 records.
             \item[\textbullet] Includes variables about Likert-rated items and demographic/other items.
         \end{itemize}
 %The dataset utilized for this anonymization example is sourced from the Alzheimer's Disease Dataset \cite{2024_Alzheimer}. It includes variables such as patient info, demographics, lifestyle, medical history, clinical measurements, symptoms, and diagnosis.
     \item[\ding{228}] \textbf{Anonymization tools}
         \begin{itemize}   
-            \item[\textbullet] Synthetization was performed using the R package  \href{https://cran.r-project.org/web/packages/synthpop/index.html} {\color{blue}\underline{synthpop}} \cite{2022_Synthpop} with method CART.
-            \item[\textbullet]  For traditional SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} \cite{2024_Sdcmicro} or for simulation of  complex synthetic data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}~\cite{2022_Simpop}.
+            \item[\textbullet] Synthetization was performed using the R package \textbf{synthpop}~\cite{2022_Synthpop}
+            %\href{https://cran.r-project.org/web/packages/synthpop/index.html} {\color{blue}\underline{synthpop}}
+             with selected method CART.
+            \item[\textbullet] For traditional SDC methods, we would use package \textbf{sdcMicro}~\cite{2024_Sdcmicro}
+            %\href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} 
+            or for simulation of complex synthetic data package \textbf{simPop}~\cite{2022_Simpop}.
+            %\href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}
         \end{itemize}
 %The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}} \cite{2022_Synthpop}. For SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} or for complex data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
 \end{itemize}
@@ -269,30 +274,31 @@ while reducing the risk that an attacker learns something new about respondents.
 % Data utility %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data utility}
 
-\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. 
-The utility of synthetic data is measured by how the results from analyses of synthetic data differ from those derived from the real data.
-There is also a \textbf{risk-utility trade-off}.
+%\textit{Data utility} refers to the \textbf{usefulness of the data for the intended purpose}. 
+The \textit{utility of synthetic data} is measured by how the results from analyses of synthetic data differ from those derived from the real data \cite{2018_Snoke}.
+There is a \textbf{risk-utility trade-off} in anonymizing data.
 % Balancing data utility and privacy is essential. High utility ensures synthetic data's effectiveness for research, while privacy measures minimize re-identification risk.
 
-\includegraphics[width=1\linewidth]{Poster TEX/figures/Hist_box_age_v5.png}
-\captionof{figure}{Difference in age distribution between Original and Synthetic dataset}
-
 \vspace{1cm}
 
-The plot for the variable shows the age distribution for both the original and synthetic datasets.
-The similarity in the histograms and boxplots suggests that the synthetic data maintains the original data's variability and distribution characteristics.
+\includegraphics[width=1\linewidth]{Poster TEX/figures/marginal_all_v6.png}
+\captionof{figure}{Difference in distribution between Original and Synthetic dataset}
 
-\vspace{1cm}
+\vspace{0.5cm}
 
-Propensity Mean Squared Error ($pMSE$) and its Standardized Ratio ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ is derived from a propensity score model, where the propensity score is the probability that a given data point belongs to the synthetic dataset rather than the original dataset. A lower $pMSE$ indicates better similarity between the datasets.
-$S_{pMSE}$ accounts for the expected mean squared error if the datasets were perfectly separable. It normalizes the $pMSE$ by dividing it by the $pMSE$ of a "null" model where the datasets are completely random.
+The plots compare marginal distribution in selected variables for both the original and synthetic datasets. The similarity in the histograms and bar plots suggests that the synthetic data maintains the original data's univariate structure.
 
-\begin{equation}
-\text{$pMSE$} = \frac{1}{N} \sum_{i=1}^{N} (P_i - Y_i)^2 \quad
-S_{pMSE} = \frac{\text{$pMSE$}}{\text{$pMSE$}_{\text{null}}}
-\end{equation}
+\vspace{0.5cm}
 
-\vspace{1cm}
+%Propensity Mean Squared Error ($pMSE$) and its Standardized Ratio ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ is derived from a propensity score model, where the propensity score is the probability that a given data point belongs to the synthetic dataset rather than the original dataset. A lower $pMSE$ indicates better similarity between the datasets.
+%$S_{pMSE}$ accounts for the expected mean squared error if the datasets were perfectly separable. It normalizes the $pMSE$ by dividing it by the $pMSE$ of a "null" model where the datasets are completely random.
+
+%\begin{equation}
+%\text{$pMSE$} = \frac{1}{N} \sum_{i=1}^{N} (P_i - %Y_i)^2 \quad
+%S_{pMSE} = \frac{\text{$pMSE$}}%{\text{$pMSE$}_{\text{null}}}
+%\end{equation}
+
+%\vspace{1cm}
 
 \begin{center}
 \begin{tabular}{lrrr}
@@ -317,13 +323,43 @@ Variable & $pMSE$ & $S_{pMSE}$ & df \\
 \label{tab:pmse}
 \end{center}
 
-The variable \textit{age} shows a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.380055, indicating a close match between the synthetic and original datasets. Similarly, \textit{gender} exhibits an extremely low $pMSE$ and an $S_{pMSE}$ of 0.456684, suggesting excellent similarity. For \textit{married} status, the $pMSE$ is 0.000001 with an $S_{pMSE}$ of 0.296588, reflecting strong similarity between the datasets.
+\vspace{0,5cm}
 
-The variable \textit{religion} has a slightly higher $pMSE$ of 0.000010 and an $S_{pMSE}$ of 0.927885, indicating that while the datasets are fairly similar, some differences exist. \textit{Education} shows moderate similarity with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.684630. The \textit{urban} variable has a low $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.458887, denoting good similarity.
+Propensity Mean Squared Error ($pMSE$) and its ratio to its null expectation ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ are calculated for each variable to assess the quality of the synthetic data for each individual variable. 
+The $pMSE$ for the whole dataset is 0.002812907, which indicates a high degree of similarity between synthetic and real dataset.
 
-However, \textit{engnat} (native English speaker status) presents a higher $S_{pMSE}$ of 1.952587, indicating differences between the datasets. Variable \textit{hand} demonstrates excellent similarity with a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.220005. \textit{Orientation} is similar, with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.366338.
+
+%$pMSE$ is derived from a propensity score model, where the propensity score is the probability that a given data point belongs to the synthetic dataset rather than the original dataset. A lower $pMSE$ indicates better similarity.
+
+%The variable \textit{age} shows a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.380055, indicating a close match between the synthetic and original datasets. Similarly, \textit{gender} exhibits an extremely low $pMSE$ and an $S_{pMSE}$ of 0.456684, suggesting excellent similarity. For \textit{married} status, the $pMSE$ is 0.000001 with an $S_{pMSE}$ of 0.296588, reflecting strong similarity between the datasets.
+
+%The variable \textit{religion} has a slightly higher $pMSE$ of 0.000010 and an $S_{pMSE}$ of 0.927885, indicating that while the datasets are fairly similar, some differences exist. \textit{Education} shows moderate similarity with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.684630. The \textit{urban} variable has a low $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.458887, denoting good similarity.
+
+%However, \textit{engnat} (native English speaker status) presents a higher $S_{pMSE}$ of 1.952587, indicating differences between the datasets. Variable \textit{hand} demonstrates excellent similarity with a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.220005. \textit{Orientation} is similar, with a $pMSE$ of 0.000002 and an $S_{pMSE}$ of 0.366338.
 
 %Race has a $pMSE$ of 0.000008 and an $S_{pMSE}$ of 1.262795, suggesting some distinguishable differences between the datasets. The variable voted shows strong similarity with a $pMSE$ of 0.000001 and an $S_{pMSE}$ of 0.435028. Lastly, familysize stands out with the highest $S_{pMSE}$ of 3.208686 and a $pMSE$ of 0.000006, indicating significant differences between the original and synthetic data for this variable. Overall, while most variables show strong similarity between the datasets, engnat, race, and familysize may require further refinement in the synthetic data generation process to achieve better alignment with the original data.
+
+\textcolor{red}{
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT
+
+} 
 
 
 \columnbreak % Force the end of the column -------------------------------------
@@ -335,7 +371,11 @@ However, \textit{engnat} (native English speaker status) presents a higher $S_{p
 
 \vspace{1cm}
 
-The mosaic plots display differences in structure for categorical data. In this case, the synthetic and original datasets show highly similar distributions across the variables \textit{gender}, \textit{education}, and \textit{engnat}. This similarity indicates that the synthetic data effectively preserves the relationships and proportions present in the original data and its analytical utility.
+The mosaic plots display differences in structure for categorical data. In this case, the synthetic and original datasets show highly similar distributions across the variables \textit{gender}, \textit{education}, and \textit{engnat}. This similarity indicates that the synthetic data effectively preserves the relationships and proportions. %present in the original data and its analytical utility.
+
+%\vspace{1cm}
+
+%\textbf{Synthetic data, as an approximation of sensitive data, is a powerful tool for protecting confidentiality.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORTHCOMING RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -406,7 +446,6 @@ This work was funded by the Swiss National Science Foundation (SNSF) with grant 
 % To evaluate the success of the synthetic data generation, we compared the synthetic dataset to the original using visual and statistical methods, focusing on distributions and correlations to ensure accurate representation.
 %One approach to assessing the effectiveness of synthetic data generation is to compare the synthetic dataset to the original using both visual and statistical methods, focusing on distributions and correlations to ensure accurate representation.
 
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{multicols}
 \end{document}
