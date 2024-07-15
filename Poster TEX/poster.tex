@@ -244,70 +244,23 @@ Released data can provide attackers with new information about specific responde
 This introductory tutorial was held at useR! 2024 in Salzburg. 
 
 \begin{itemize}
-    \item Statistical disclosure control methods with different anonymization approaches that can be used to protect data confidentiality were shown and concepts of SDC were explained in better detail.
+    \item Statistical disclosure control methods with different anonymization approaches that can be used to protect data confidentiality were shown, and basic concepts of SDC were explained in better detail.
     \item The usage of packages \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}}~\cite{2024_Sdcmicro}, \href{https://cran.r-project.org/web/packages/synthpop/index.html} {\color{blue}\underline{synthpop}}~\cite{2022_Synthpop} and \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}~\cite{2022_Simpop} was demonstrated.    
 \end{itemize}
 
 \vspace{1cm}
-Materials to download:
+Materials to download: 
 
 \includegraphics[width=0.4\linewidth]{Poster TEX/style/qr-code_useR.png}
-\hspace{3cm} 
-\includegraphics[width=0.4\linewidth]{Poster TEX/style/useR_1024x1024.png}
+\hspace{0.5cm} 
+\raisebox{2.5cm}{
+\includegraphics[width=0.6\linewidth]{Poster TEX/style/UseR-24-logo.png}}
 
 \columnbreak % Force the end of the column -------------------------------------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Example of anonymization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Example of synthetic data generation}
-
-\textcolor{red}{
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-TEXT-
-}
 
 Let's suppose that we are obliged to share data 
 % openly while protecting participants' privacy and aligning with open science goals.
@@ -320,14 +273,14 @@ while reducing the risk that an attacker learns something new about respondents.
             \item[\textbullet] Includes variables about Likert-rated items and demographic/other items.
         \end{itemize}
 %The dataset utilized for this anonymization example is sourced from the Alzheimer's Disease Dataset \cite{2024_Alzheimer}. It includes variables such as patient info, demographics, lifestyle, medical history, clinical measurements, symptoms, and diagnosis.
-    \item[\ding{228}] \textbf{Anonymization tools}
+    \item[\ding{228}] \textbf{Anonymization tool}
         \begin{itemize}   
             \item[\textbullet] Synthetization was performed using the R package \textbf{synthpop}~\cite{2022_Synthpop}
             %\href{https://cran.r-project.org/web/packages/synthpop/index.html} {\color{blue}\underline{synthpop}}
              with selected method CART.
-            \item[\textbullet] For traditional SDC methods, we would use package \textbf{sdcMicro}~\cite{2024_Sdcmicro}
+            %\item[\textbullet] For traditional SDC methods, we would use package \textbf{sdcMicro}~\cite{2024_Sdcmicro}
             %\href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} 
-            or for simulation of complex synthetic data package \textbf{simPop}~\cite{2022_Simpop}.
+            %or for simulation of complex synthetic data package \textbf{simPop}~\cite{2022_Simpop}.
             %\href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}
         \end{itemize}
 %The anonymization with synthetization may be performed in R package \href{https://cran.r-project.org/web/packages/synthpop/index.html}{\color{blue}\underline{synthpop}} \cite{2022_Synthpop}. For SDC methods we would use package \href{https://cran.r-project.org/web/packages/sdcMicro/index.html}{\color{blue}\underline{sdcMicro}} or for complex data package \href{https://cran.r-project.org/web/packages/simPop/index.html}{\color{blue}\underline{simPop}}.
@@ -335,7 +288,7 @@ while reducing the risk that an attacker learns something new about respondents.
 
  %In our example, we evaluated the utility of synthetic data by comparing original and synthetic datasets on several metrics.
 
-\columnbreak % Force the end of the column -------------------------------------
+%\columnbreak % Force the end of the column -------------------------------------
 
 % Data utility %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data utility}
@@ -366,33 +319,33 @@ The plots compare marginal distribution in selected variables for both the origi
 
 %\vspace{1cm}
 
-\begin{center}
-\begin{tabular}{lrrr}
-  \toprule
-Variable & $pMSE$ & $S_{pMSE}$ & df \\ 
-  \midrule
-  age & 0.000001 & 0.380055 & 4 \\ 
-  gender & 0.000000 & 0.456684 & 1 \\ 
-  married & 0.000001 & 0.296588 & 3 \\ 
-  religion & 0.000010 & 0.927885 & 12 \\ 
-  education & 0.000002 & 0.684630 & 3 \\ 
-  urban & 0.000001 & 0.458887 & 3 \\ 
-  engnat & 0.000002 & 1.952587 & 1 \\ 
-  hand & 0.000001 & 0.220005 & 3 \\ 
-  orientation & 0.000002 & 0.366338 & 5 \\ 
+%\begin{center}
+%\begin{tabular}{lrrr}
+%  \toprule
+%Variable & $pMSE$ & $S_{pMSE}$ & df \\ 
+%  \midrule
+%  age & 0.000001 & 0.380055 & 4 \\ 
+%  gender & 0.000000 & 0.456684 & 1 \\ 
+%  married & 0.000001 & 0.296588 & 3 \\ 
+%  religion & 0.000010 & 0.927885 & 12 \\ 
+%  education & 0.000002 & 0.684630 & 3 \\ 
+%  urban & 0.000001 & 0.458887 & 3 \\ 
+%  engnat & 0.000002 & 1.952587 & 1 \\ 
+%  hand & 0.000001 & 0.220005 & 3 \\ 
+%  orientation & 0.000002 & 0.366338 & 5 \\ 
 %  race & 0.000008 & 1.262795 & 7 \\ 
 %  voted & 0.000001 & 0.435028 & 2 \\ 
 %  familysize & 0.000006 & 3.208686 & 2 \\ 
-   \bottomrule
-\end{tabular}
-\caption{Comparison of $pMSE$ and $S_{pMSE}$  for different variables} 
-\label{tab:pmse}
-\end{center}
+%   \bottomrule
+%\end{tabular}
+%\caption{Comparison of $pMSE$ and $S_{pMSE}$  for different variables} 
+%\label{tab:pmse}
+%\end{center}
 
 \vspace{0,5cm}
 
-Propensity Mean Squared Error ($pMSE$) and its ratio to its null expectation ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ are calculated for each variable to assess the quality of the synthetic data for each individual variable. 
-The $pMSE$ for the whole dataset is 0.002812907, which indicates a high degree of similarity between synthetic and real dataset.
+%Propensity Mean Squared Error ($pMSE$) and its ratio to its null expectation ($S_{pMSE}$) are used to compare the similarity between synthetic and original datasets. $pMSE$ are calculated for each variable to assess the quality of the synthetic data for each individual variable. 
+%The $pMSE$ for the whole dataset is 0.002812907, which indicates a high degree of similarity between synthetic and real dataset.
 
 
 %$pMSE$ is derived from a propensity score model, where the propensity score is the probability that a given data point belongs to the synthetic dataset rather than the original dataset. A lower $pMSE$ indicates better similarity.
